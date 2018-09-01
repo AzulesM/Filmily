@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		927CF7F0213A8CBA00598AB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CF7EF213A8CBA00598AB8 /* AppDelegate.swift */; };
+		927CF7F2213A8CBA00598AB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CF7F1213A8CBA00598AB8 /* ViewController.swift */; };
+		927CF7F5213A8CBA00598AB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 927CF7F3213A8CBA00598AB8 /* Main.storyboard */; };
+		927CF7F7213A8CBC00598AB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927CF7F6213A8CBC00598AB8 /* Assets.xcassets */; };
+		927CF7FA213A8CBC00598AB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 927CF7F8213A8CBC00598AB8 /* LaunchScreen.storyboard */; };
+		927CF805213A8CBC00598AB8 /* FilmilyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CF804213A8CBC00598AB8 /* FilmilyTests.swift */; };
+		927CF810213A8CBC00598AB8 /* FilmilyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CF80F213A8CBC00598AB8 /* FilmilyUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		927CF801213A8CBC00598AB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 927CF7E4213A8CBA00598AB8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 927CF7EB213A8CBA00598AB8;
+			remoteInfo = Filmily;
+		};
+		927CF80C213A8CBC00598AB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 927CF7E4213A8CBA00598AB8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 927CF7EB213A8CBA00598AB8;
+			remoteInfo = Filmily;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		927CF7EC213A8CBA00598AB8 /* Filmily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Filmily.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		927CF7EF213A8CBA00598AB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		927CF7F1213A8CBA00598AB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		927CF7F4213A8CBA00598AB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		927CF7F6213A8CBC00598AB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		927CF7F9213A8CBC00598AB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		927CF7FB213A8CBC00598AB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		927CF800213A8CBC00598AB8 /* FilmilyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FilmilyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		927CF804213A8CBC00598AB8 /* FilmilyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmilyTests.swift; sourceTree = "<group>"; };
+		927CF806213A8CBC00598AB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		927CF80B213A8CBC00598AB8 /* FilmilyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FilmilyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		927CF80F213A8CBC00598AB8 /* FilmilyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmilyUITests.swift; sourceTree = "<group>"; };
+		927CF811213A8CBC00598AB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		927CF7E9213A8CBA00598AB8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		927CF7FD213A8CBC00598AB8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		927CF808213A8CBC00598AB8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		927CF7E3213A8CBA00598AB8 = {
+			isa = PBXGroup;
+			children = (
+				927CF7EE213A8CBA00598AB8 /* Filmily */,
+				927CF803213A8CBC00598AB8 /* FilmilyTests */,
+				927CF80E213A8CBC00598AB8 /* FilmilyUITests */,
+				927CF7ED213A8CBA00598AB8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		927CF7ED213A8CBA00598AB8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				927CF7EC213A8CBA00598AB8 /* Filmily.app */,
+				927CF800213A8CBC00598AB8 /* FilmilyTests.xctest */,
+				927CF80B213A8CBC00598AB8 /* FilmilyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		927CF7EE213A8CBA00598AB8 /* Filmily */ = {
+			isa = PBXGroup;
+			children = (
+				927CF7EF213A8CBA00598AB8 /* AppDelegate.swift */,
+				927CF7F1213A8CBA00598AB8 /* ViewController.swift */,
+				927CF7F3213A8CBA00598AB8 /* Main.storyboard */,
+				927CF7F6213A8CBC00598AB8 /* Assets.xcassets */,
+				927CF7F8213A8CBC00598AB8 /* LaunchScreen.storyboard */,
+				927CF7FB213A8CBC00598AB8 /* Info.plist */,
+			);
+			path = Filmily;
+			sourceTree = "<group>";
+		};
+		927CF803213A8CBC00598AB8 /* FilmilyTests */ = {
+			isa = PBXGroup;
+			children = (
+				927CF804213A8CBC00598AB8 /* FilmilyTests.swift */,
+				927CF806213A8CBC00598AB8 /* Info.plist */,
+			);
+			path = FilmilyTests;
+			sourceTree = "<group>";
+		};
+		927CF80E213A8CBC00598AB8 /* FilmilyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				927CF80F213A8CBC00598AB8 /* FilmilyUITests.swift */,
+				927CF811213A8CBC00598AB8 /* Info.plist */,
+			);
+			path = FilmilyUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		927CF7EB213A8CBA00598AB8 /* Filmily */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 927CF814213A8CBC00598AB8 /* Build configuration list for PBXNativeTarget "Filmily" */;
+			buildPhases = (
+				927CF7E8213A8CBA00598AB8 /* Sources */,
+				927CF7E9213A8CBA00598AB8 /* Frameworks */,
+				927CF7EA213A8CBA00598AB8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Filmily;
+			productName = Filmily;
+			productReference = 927CF7EC213A8CBA00598AB8 /* Filmily.app */;
+			productType = "com.apple.product-type.application";
+		};
+		927CF7FF213A8CBC00598AB8 /* FilmilyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 927CF817213A8CBC00598AB8 /* Build configuration list for PBXNativeTarget "FilmilyTests" */;
+			buildPhases = (
+				927CF7FC213A8CBC00598AB8 /* Sources */,
+				927CF7FD213A8CBC00598AB8 /* Frameworks */,
+				927CF7FE213A8CBC00598AB8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				927CF802213A8CBC00598AB8 /* PBXTargetDependency */,
+			);
+			name = FilmilyTests;
+			productName = FilmilyTests;
+			productReference = 927CF800213A8CBC00598AB8 /* FilmilyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		927CF80A213A8CBC00598AB8 /* FilmilyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 927CF81A213A8CBC00598AB8 /* Build configuration list for PBXNativeTarget "FilmilyUITests" */;
+			buildPhases = (
+				927CF807213A8CBC00598AB8 /* Sources */,
+				927CF808213A8CBC00598AB8 /* Frameworks */,
+				927CF809213A8CBC00598AB8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				927CF80D213A8CBC00598AB8 /* PBXTargetDependency */,
+			);
+			name = FilmilyUITests;
+			productName = FilmilyUITests;
+			productReference = 927CF80B213A8CBC00598AB8 /* FilmilyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		927CF7E4213A8CBA00598AB8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = Azules;
+				TargetAttributes = {
+					927CF7EB213A8CBA00598AB8 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					927CF7FF213A8CBC00598AB8 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 927CF7EB213A8CBA00598AB8;
+					};
+					927CF80A213A8CBC00598AB8 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 927CF7EB213A8CBA00598AB8;
+					};
+				};
+			};
+			buildConfigurationList = 927CF7E7213A8CBA00598AB8 /* Build configuration list for PBXProject "Filmily" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 927CF7E3213A8CBA00598AB8;
+			productRefGroup = 927CF7ED213A8CBA00598AB8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				927CF7EB213A8CBA00598AB8 /* Filmily */,
+				927CF7FF213A8CBC00598AB8 /* FilmilyTests */,
+				927CF80A213A8CBC00598AB8 /* FilmilyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		927CF7EA213A8CBA00598AB8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				927CF7FA213A8CBC00598AB8 /* LaunchScreen.storyboard in Resources */,
+				927CF7F7213A8CBC00598AB8 /* Assets.xcassets in Resources */,
+				927CF7F5213A8CBA00598AB8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		927CF7FE213A8CBC00598AB8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		927CF809213A8CBC00598AB8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		927CF7E8213A8CBA00598AB8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				927CF7F2213A8CBA00598AB8 /* ViewController.swift in Sources */,
+				927CF7F0213A8CBA00598AB8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		927CF7FC213A8CBC00598AB8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				927CF805213A8CBC00598AB8 /* FilmilyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		927CF807213A8CBC00598AB8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				927CF810213A8CBC00598AB8 /* FilmilyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		927CF802213A8CBC00598AB8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 927CF7EB213A8CBA00598AB8 /* Filmily */;
+			targetProxy = 927CF801213A8CBC00598AB8 /* PBXContainerItemProxy */;
+		};
+		927CF80D213A8CBC00598AB8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 927CF7EB213A8CBA00598AB8 /* Filmily */;
+			targetProxy = 927CF80C213A8CBC00598AB8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		927CF7F3213A8CBA00598AB8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				927CF7F4213A8CBA00598AB8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		927CF7F8213A8CBC00598AB8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				927CF7F9213A8CBC00598AB8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		927CF812213A8CBC00598AB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		927CF813213A8CBC00598AB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		927CF815213A8CBC00598AB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Filmily/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.azules.Filmily;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		927CF816213A8CBC00598AB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Filmily/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.azules.Filmily;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		927CF818213A8CBC00598AB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FilmilyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.azules.FilmilyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Filmily.app/Filmily";
+			};
+			name = Debug;
+		};
+		927CF819213A8CBC00598AB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FilmilyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.azules.FilmilyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Filmily.app/Filmily";
+			};
+			name = Release;
+		};
+		927CF81B213A8CBC00598AB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FilmilyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.azules.FilmilyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Filmily;
+			};
+			name = Debug;
+		};
+		927CF81C213A8CBC00598AB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FilmilyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.azules.FilmilyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Filmily;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		927CF7E7213A8CBA00598AB8 /* Build configuration list for PBXProject "Filmily" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				927CF812213A8CBC00598AB8 /* Debug */,
+				927CF813213A8CBC00598AB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		927CF814213A8CBC00598AB8 /* Build configuration list for PBXNativeTarget "Filmily" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				927CF815213A8CBC00598AB8 /* Debug */,
+				927CF816213A8CBC00598AB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		927CF817213A8CBC00598AB8 /* Build configuration list for PBXNativeTarget "FilmilyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				927CF818213A8CBC00598AB8 /* Debug */,
+				927CF819213A8CBC00598AB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		927CF81A213A8CBC00598AB8 /* Build configuration list for PBXNativeTarget "FilmilyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				927CF81B213A8CBC00598AB8 /* Debug */,
+				927CF81C213A8CBC00598AB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 927CF7E4213A8CBA00598AB8 /* Project object */;
+}
