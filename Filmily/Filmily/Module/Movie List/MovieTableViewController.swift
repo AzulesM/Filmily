@@ -14,10 +14,13 @@ class MovieTableViewController: UITableViewController {
     
     var movies: [Movie] = [Movie]()
     
+    let service = TMDBService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         initView()
+        fetchLatestMovies()
     }
     
     func initView() {
@@ -26,6 +29,16 @@ class MovieTableViewController: UITableViewController {
     }
     
     @objc func fetchLatestMovies() {
+        service.discoverMovies(page: 1) { [weak self] (discoverResult, error) in
+            self?.refreshControl?.endRefreshing()
+            
+            if let error = error {
+                print(error)
+            } else {
+                self?.discoverResult = discoverResult
+                print(discoverResult!)
+            }
+        }
     }
 
     // MARK: - Table view data source

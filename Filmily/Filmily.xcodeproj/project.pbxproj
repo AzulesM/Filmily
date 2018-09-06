@@ -15,6 +15,7 @@
 		927CF810213A8CBC00598AB8 /* FilmilyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CF80F213A8CBC00598AB8 /* FilmilyUITests.swift */; };
 		927CF82B213C1A8800598AB8 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CF82A213C1A8800598AB8 /* Movie.swift */; };
 		92F6E17B213DB32E005A8608 /* MovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F6E17A213DB32E005A8608 /* MovieTableViewController.swift */; };
+		92F6E181213F1B18005A8608 /* TMDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F6E180213F1B18005A8608 /* TMDBService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		927CF811213A8CBC00598AB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		927CF82A213C1A8800598AB8 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		92F6E17A213DB32E005A8608 /* MovieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewController.swift; sourceTree = "<group>"; };
+		92F6E180213F1B18005A8608 /* TMDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		927CF7EE213A8CBA00598AB8 /* Filmily */ = {
 			isa = PBXGroup;
 			children = (
+				92F6E17F213F1AC7005A8608 /* Service */,
 				927CF826213BF62400598AB8 /* Model */,
 				927CF824213BEB6A00598AB8 /* Module */,
 				927CF7EF213A8CBA00598AB8 /* AppDelegate.swift */,
@@ -150,6 +153,14 @@
 				92F6E17A213DB32E005A8608 /* MovieTableViewController.swift */,
 			);
 			path = "Movie List";
+			sourceTree = "<group>";
+		};
+		92F6E17F213F1AC7005A8608 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				92F6E180213F1B18005A8608 /* TMDBService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92F6E181213F1B18005A8608 /* TMDBService.swift in Sources */,
 				92F6E17B213DB32E005A8608 /* MovieTableViewController.swift in Sources */,
 				927CF7F0213A8CBA00598AB8 /* AppDelegate.swift in Sources */,
 				927CF82B213C1A8800598AB8 /* Movie.swift in Sources */,
