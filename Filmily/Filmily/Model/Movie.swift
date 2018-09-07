@@ -15,7 +15,7 @@ struct DiscoverResult: Codable {
     var results: [Movie]?
 }
 
-struct Movie: Codable {
+struct Movie: Codable, Equatable {
     var id: Int?
     var title: String?
     var poster_path: String?
@@ -29,5 +29,13 @@ struct Movie: Codable {
     struct Genres: Codable {
         var id: Int?
         var name: String?
+    }
+    
+    static func == (lhs: Movie, rhs: Movie) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func isInfoEnough() -> Bool {
+        return (poster_path != nil || backdrop_path != nil) && title != nil
     }
 }

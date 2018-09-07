@@ -16,6 +16,7 @@
 		927CF82B213C1A8800598AB8 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CF82A213C1A8800598AB8 /* Movie.swift */; };
 		92F6E17B213DB32E005A8608 /* MovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F6E17A213DB32E005A8608 /* MovieTableViewController.swift */; };
 		92F6E181213F1B18005A8608 /* TMDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F6E180213F1B18005A8608 /* TMDBService.swift */; };
+		92F6E18421418645005A8608 /* BriefMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F6E18321418645005A8608 /* BriefMovieTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		927CF82A213C1A8800598AB8 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		92F6E17A213DB32E005A8608 /* MovieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewController.swift; sourceTree = "<group>"; };
 		92F6E180213F1B18005A8608 /* TMDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBService.swift; sourceTree = "<group>"; };
+		92F6E18321418645005A8608 /* BriefMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefMovieTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				92F6E17A213DB32E005A8608 /* MovieTableViewController.swift */,
+				92F6E18321418645005A8608 /* BriefMovieTableViewCell.swift */,
 			);
 			path = "Movie List";
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				92F6E17B213DB32E005A8608 /* MovieTableViewController.swift in Sources */,
 				927CF7F0213A8CBA00598AB8 /* AppDelegate.swift in Sources */,
 				927CF82B213C1A8800598AB8 /* Movie.swift in Sources */,
+				92F6E18421418645005A8608 /* BriefMovieTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
