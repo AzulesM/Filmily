@@ -10,15 +10,24 @@ import UIKit
 
 class MovieTableViewController: UITableViewController {
     
+    struct SegueIdentifier {
+        static let showMovieDetail = "ShowDetailSegue"
+    }
+    
+    struct BundleKey {
+        static let displayName = "CFBundleDisplayName"
+    }
+    
     var discoverResult: DiscoverResult?
     
     var movies: [Movie] = [Movie]()
     
-    let service = TMDBService()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        navigationItem.title = Bundle.main.object(forInfoDictionaryKey: BundleKey.displayName) as? String
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
         initView()
         fetchLatestMovies()
     }
@@ -31,9 +40,9 @@ class MovieTableViewController: UITableViewController {
     }
     
     @objc func fetchLatestMovies() {
-        service.discoverMovies(page: 1) { [weak self] (discoverResult, error) in
+        TMDBService.shared.discoverMovies(page: 1) { [weak self] (discoverResult, error) in
             self?.refreshControl?.endRefreshing()
-            
+
             if let error = error {
                 print(error)
             } else {
@@ -84,15 +93,18 @@ class MovieTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: SegueIdentifier.showMovieDetail, sender: indexPath)
+    }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let indexPath = sender as? IndexPath {
+            let viewController = segue.destination as? MovieDetailTableViewController
+            viewController?.movie = self.movies[indexPath.row]
+        }
     }
-    */
 
 }

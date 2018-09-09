@@ -16,7 +16,7 @@ class BriefMovieTableViewCell: UITableViewCell {
     
     func configure(for movie: Movie) {
         titleLabel?.text = movie.title
-        popularityLabel?.text = String(format: "%.1f ★", movie.popularity!)
+        popularityLabel?.text = String(format: "%.1f 🔥", movie.popularity!)
     }
     
 }

@@ -14,6 +14,7 @@
 		927CF805213A8CBC00598AB8 /* FilmilyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CF804213A8CBC00598AB8 /* FilmilyTests.swift */; };
 		927CF810213A8CBC00598AB8 /* FilmilyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CF80F213A8CBC00598AB8 /* FilmilyUITests.swift */; };
 		927CF82B213C1A8800598AB8 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CF82A213C1A8800598AB8 /* Movie.swift */; };
+		928276992145624A001754F4 /* MovieDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928276982145624A001754F4 /* MovieDetailTableViewController.swift */; };
 		92F6E17B213DB32E005A8608 /* MovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F6E17A213DB32E005A8608 /* MovieTableViewController.swift */; };
 		92F6E181213F1B18005A8608 /* TMDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F6E180213F1B18005A8608 /* TMDBService.swift */; };
 		92F6E18421418645005A8608 /* BriefMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F6E18321418645005A8608 /* BriefMovieTableViewCell.swift */; };
@@ -60,6 +61,7 @@
 		927CF80F213A8CBC00598AB8 /* FilmilyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmilyUITests.swift; sourceTree = "<group>"; };
 		927CF811213A8CBC00598AB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		927CF82A213C1A8800598AB8 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		928276982145624A001754F4 /* MovieDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieDetailTableViewController.swift; path = "Movie Detail/MovieDetailTableViewController.swift"; sourceTree = "<group>"; };
 		92F6E17A213DB32E005A8608 /* MovieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewController.swift; sourceTree = "<group>"; };
 		92F6E180213F1B18005A8608 /* TMDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBService.swift; sourceTree = "<group>"; };
 		92F6E18321418645005A8608 /* BriefMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefMovieTableViewCell.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 		927CF824213BEB6A00598AB8 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				92827697214561F3001754F4 /* Movie Detail */,
 				927CF827213BF84300598AB8 /* Movie List */,
 			);
 			path = Module;
@@ -196,6 +199,14 @@
 				92F6E18321418645005A8608 /* BriefMovieTableViewCell.swift */,
 			);
 			path = "Movie List";
+			sourceTree = "<group>";
+		};
+		92827697214561F3001754F4 /* Movie Detail */ = {
+			isa = PBXGroup;
+			children = (
+				928276982145624A001754F4 /* MovieDetailTableViewController.swift */,
+			);
+			name = "Movie Detail";
 			sourceTree = "<group>";
 		};
 		92F6E17F213F1AC7005A8608 /* Service */ = {
@@ -342,15 +353,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Filmily-checkManifestLockResult.txt",
 			);
@@ -364,16 +371,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Filmily/Pods-Filmily-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -388,15 +391,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-FilmilyUITests-checkManifestLockResult.txt",
 			);
@@ -410,15 +409,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-FilmilyTests-checkManifestLockResult.txt",
 			);
@@ -437,6 +432,7 @@
 				92F6E181213F1B18005A8608 /* TMDBService.swift in Sources */,
 				92F6E17B213DB32E005A8608 /* MovieTableViewController.swift in Sources */,
 				927CF7F0213A8CBA00598AB8 /* AppDelegate.swift in Sources */,
+				928276992145624A001754F4 /* MovieDetailTableViewController.swift in Sources */,
 				927CF82B213C1A8800598AB8 /* Movie.swift in Sources */,
 				92F6E18421418645005A8608 /* BriefMovieTableViewCell.swift in Sources */,
 			);

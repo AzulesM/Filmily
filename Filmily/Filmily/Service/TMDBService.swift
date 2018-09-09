@@ -11,6 +11,8 @@ import Alamofire
 
 class TMDBService {
     
+    static let shared = TMDBService()
+    
     let key: String = "d184b88235b14fcef7ea6e76fd52cd3e"
     let baseURL: String = "https://api.themoviedb.org/3/"
     
