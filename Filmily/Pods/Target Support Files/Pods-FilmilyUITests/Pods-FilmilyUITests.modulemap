@@ -1,0 +1,6 @@
+framework module Pods_FilmilyUITests {
+  umbrella header "Pods-FilmilyUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
