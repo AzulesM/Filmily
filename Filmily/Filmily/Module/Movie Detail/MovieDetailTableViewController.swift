@@ -10,6 +10,7 @@ import UIKit
 
 class MovieDetailTableViewController: UITableViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var genresLabel: UILabel!
@@ -26,6 +27,8 @@ class MovieDetailTableViewController: UITableViewController {
     }
     
     func updateUI() {
+        requestForImage()
+        
         titleLabel.text = movie?.title
         languageLabel.text = languageString()
         genresLabel.text = genresString()
@@ -40,11 +43,18 @@ class MovieDetailTableViewController: UITableViewController {
             if let error = error {
                 print(error)
             } else {
-                print(movie!)
                 self?.movie?.genres = movie?.genres
                 self?.movie?.runtime = movie?.runtime
                 self?.updateUI()
             }
+        }
+    }
+    
+    func requestForImage() {
+        let urlString = self.movie!.backdrop_path ?? self.movie!.poster_path
+        let url = URL(string: "https://image.tmdb.org/t/p/w500" + urlString!)
+        
+        self.imageView.sd_setImage(with: url, placeholderImage: nil, options: .retryFailed) { (image, error, cacheType, imageURL) in
         }
     }
     
@@ -72,7 +82,7 @@ class MovieDetailTableViewController: UITableViewController {
     
     func runtimeString() -> String {
         if let runtime = movie?.runtime {
-            return String(format: "🕒 %d : %d", runtime / 60, runtime % 60)
+            return String(format: "🕒 %02d : %02d", runtime / 60, runtime % 60)
         } else {
             return ""
         }
@@ -81,6 +91,12 @@ class MovieDetailTableViewController: UITableViewController {
     // MARK: - Table view delegate
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            // 0.56 is the backdrop image from TMDb height/width ratio
+            let backdropImageRatio: CGFloat = 0.56
+            return (UIScreen.main.bounds.width - tableView.layoutMargins.left - tableView.layoutMargins.right) * backdropImageRatio
+        }
+        
         return UITableViewAutomaticDimension
     }
 
