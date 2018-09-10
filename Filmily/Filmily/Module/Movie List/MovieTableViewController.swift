@@ -29,6 +29,7 @@ class MovieTableViewController: UITableViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         initView()
+        Spinner.start()
         fetchLatestMovies()
     }
     
@@ -41,6 +42,7 @@ class MovieTableViewController: UITableViewController {
     
     @objc func fetchLatestMovies() {
         TMDBService.shared.discoverMovies(page: 1) { [weak self] (discoverResult, error) in
+            Spinner.stop()
             self?.refreshControl?.endRefreshing()
 
             if let error = error {

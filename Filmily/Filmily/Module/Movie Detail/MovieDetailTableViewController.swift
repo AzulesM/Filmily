@@ -39,7 +39,11 @@ class MovieDetailTableViewController: UITableViewController {
     }
     
     func retrieveMovieDetail() {
+        Spinner.start()
+        
         TMDBService.shared.getMovieDetail(id: (movie?.id)!) { [weak self] (movie, error) in
+            Spinner.stop()
+            
             if let error = error {
                 print(error)
             } else {
