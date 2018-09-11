@@ -7,58 +7,74 @@
 //
 
 import Foundation
+import Alamofire
 
 class TMDBService {
+    
+    static let shared = TMDBService()
     
     let key: String = "d184b88235b14fcef7ea6e76fd52cd3e"
     let baseURL: String = "https://api.themoviedb.org/3/"
     
-    let defaultSession = URLSession(configuration: .default)
-    var discoverDataTask: URLSessionDataTask?
-    
-    public typealias DiscoverCompletion = (_ DiscoverResult: DiscoverResult?, _ error: Error?) -> Void
+    public typealias DiscoverCompletion = (_ discoverResult: DiscoverResult?, _ error: Error?) -> Void
+    public typealias GetMovieCompletion = (_ getMovieResult: Movie?, _ error: Error?) -> Void
     
     open func discoverMovies(page: Int, completion: @escaping DiscoverCompletion) {
         let url = baseURL + "discover/movie"
         let parameters = ["api_key": key, "sort_by": "release_date.desc", "page": String(page), "primary_release_date.lte": "2016-12-31"]
         
-        discoverDataTask?.cancel()
         discoverMovies(urlString: url, parameters: parameters, completion: completion)
-//        https://api.themoviedb.org/3/discover/movie?api_key=d184b88235b14fcef7ea6e76fd52cd3e&sort_by=release_date.desc&page=1&primary_release_date.lte=2016-12-31
-//        https://api.themoviedb.org/3/movie/{movie_id}?api_key=d184b88235b14fcef7ea6e76fd52cd3e
     }
     
-    private func discoverMovies(urlString: String, parameters: [String: Any], completion: @escaping (DiscoverCompletion)) {
-        var urlComponents = URLComponents(string: urlString)!
-        urlComponents.queryItems = []
+    open func getMovieDetail(id: Int, completion: @escaping GetMovieCompletion) {
+        let url = baseURL + "movie/" + String(describing: id)
+        let parameters = ["api_key": key]
         
-        for (key, value) in parameters {
-            guard let value = value as? String else { return }
-            urlComponents.queryItems?.append(URLQueryItem(name: key, value: value))
-        }
-        
-        guard let url = urlComponents.url else { return }
-        discoverDataTask = defaultSession.dataTask(with: url, completionHandler: { (data, response, error) in
-            defer { self.discoverDataTask = nil }
-            
-            if let error = error {
+        getMovieDetail(urlString: url, parameters: parameters, completion: completion)
+    }
+    
+    private func discoverMovies(urlString: String, parameters: [String: Any], completion: @escaping DiscoverCompletion) {
+        Alamofire.request(urlString, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+            if let error = response.error {
                 DispatchQueue.main.async {
                     completion(nil, error)
                 }
-            } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                let decoder = JSONDecoder()
-                
-                if let discoverResult = try? decoder.decode(DiscoverResult.self, from: data) {
+            } else if response.result.isSuccess {
+                do {
+                    let decoder = JSONDecoder()
+                    let discoverResult = try decoder.decode(DiscoverResult.self, from: response.data!)
                     DispatchQueue.main.async {
                         completion(discoverResult, nil)
                     }
-                } else {
-                    print("decode error")
+                } catch let error {
+                    DispatchQueue.main.async {
+                        completion(nil, error)
+                    }
                 }
             }
-        })
-        
-        discoverDataTask?.resume()
+        }
+    }
+    
+    private func getMovieDetail(urlString: String, parameters: [String: Any], completion: @escaping GetMovieCompletion) {
+        Alamofire.request(urlString, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+            if let error = response.error {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+            } else if response.result.isSuccess {
+                do {
+                    let decoder = JSONDecoder()
+                    let getMovieResult = try decoder.decode(Movie.self, from: response.data!)
+                    DispatchQueue.main.async {
+                        completion(getMovieResult, nil)
+                    }
+                } catch let error {
+                    DispatchQueue.main.async {
+                        completion(nil, error)
+                    }
+                }
+            }
+        }
     }
 
 }
