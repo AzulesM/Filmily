@@ -38,9 +38,3 @@ class BriefMovieTableViewCell: UITableViewCell {
     }
     
 }
-
-public extension UITableViewCell {
-    public static func cellIdentifier() -> String {
-        return String(describing: self)
-    }
-}
