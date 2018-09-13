@@ -9,6 +9,10 @@
 import UIKit
 
 class MovieDetailTableViewController: UITableViewController {
+    
+    struct SegueIdentifier {
+        static let displayBookingWebsite = "DisplayBookMovie"
+    }
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -17,28 +21,56 @@ class MovieDetailTableViewController: UITableViewController {
     @IBOutlet weak var runtimeLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     
+    var bookingButton: UIButton!
+    var originalButtonPoint: CGPoint = CGPoint.zero
+    
     var movie: Movie?
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateUI()
+        addBookingButton()
         retrieveMovieDetail()
     }
     
-    func updateUI() {
-        requestForImage()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
-        titleLabel.text = movie?.title
-        languageLabel.text = languageString()
-        genresLabel.text = genresString()
-        runtimeLabel.text = runtimeString()
-        overviewLabel.text = movie?.overview
-        
-        tableView.reloadData()
+        if bookingButton.frame == CGRect.zero {
+            customBookingButton()
+        }
     }
     
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let point = CGPoint(x: originalButtonPoint.x, y: originalButtonPoint.y + tableView.contentOffset.y)
+        bookingButton.frame = CGRect(origin: point, size: bookingButton.frame.size)
+    }
+    
+    func addBookingButton() {
+        bookingButton = UIButton(type: .custom)
+        bookingButton.backgroundColor = .red
+        bookingButton.addTarget(self, action: #selector(displayBookingWebsite), for: .touchUpInside)
+        tableView.addSubview(bookingButton)
+    }
+    
+    func customBookingButton() {
+        let buttonLength: CGFloat = 50.0
+        let constantToEdge: CGFloat = 16.0
+        originalButtonPoint = CGPoint(x: tableView.bounds.maxX - buttonLength - constantToEdge,
+                                      y: tableView.bounds.maxY - buttonLength - constantToEdge)
+        bookingButton.frame = CGRect(origin: originalButtonPoint, size: CGSize(width: buttonLength, height: buttonLength))
+        bookingButton.layer.cornerRadius = bookingButton.bounds.width / 2.0
+        bookingButton.layer.shadowColor = UIColor.lightGray.cgColor
+        bookingButton.layer.shadowOpacity = 0.8
+        bookingButton.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+    }
+
     func retrieveMovieDetail() {
+        if self.movie?.genres != nil && self.movie?.runtime != nil {
+            return
+        }
+        
         Spinner.start()
         
         TMDBService.shared.getMovieDetail(id: (movie?.id)!) { [weak self] (movie, error) in
@@ -52,6 +84,24 @@ class MovieDetailTableViewController: UITableViewController {
                 self?.updateUI()
             }
         }
+    }
+    
+    @objc func displayBookingWebsite() {
+        performSegue(withIdentifier: SegueIdentifier.displayBookingWebsite, sender: nil)
+    }
+    
+    // MARK: - Display
+    
+    func updateUI() {
+        requestForImage()
+        
+        titleLabel.text = movie?.title
+        languageLabel.text = languageString()
+        genresLabel.text = genresString()
+        runtimeLabel.text = runtimeString()
+        overviewLabel.text = movie?.overview
+        
+        tableView.reloadData()
     }
     
     func requestForImage() {
@@ -103,15 +153,5 @@ class MovieDetailTableViewController: UITableViewController {
         
         return UITableViewAutomaticDimension
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
