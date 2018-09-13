@@ -17,6 +17,7 @@
 		928276992145624A001754F4 /* MovieDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928276982145624A001754F4 /* MovieDetailTableViewController.swift */; };
 		9282769D2146E540001754F4 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282769C2146E540001754F4 /* Spinner.swift */; };
 		928276A021481B26001754F4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282769F21481B26001754F4 /* Extensions.swift */; };
+		929B1B8D21498DFC000DB8F6 /* BookMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B1B8C21498DFC000DB8F6 /* BookMovieViewController.swift */; };
 		92F6E17B213DB32E005A8608 /* MovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F6E17A213DB32E005A8608 /* MovieTableViewController.swift */; };
 		92F6E181213F1B18005A8608 /* TMDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F6E180213F1B18005A8608 /* TMDBService.swift */; };
 		92F6E18421418645005A8608 /* BriefMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F6E18321418645005A8608 /* BriefMovieTableViewCell.swift */; };
@@ -66,6 +67,7 @@
 		928276982145624A001754F4 /* MovieDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieDetailTableViewController.swift; path = "Movie Detail/MovieDetailTableViewController.swift"; sourceTree = "<group>"; };
 		9282769C2146E540001754F4 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		9282769F21481B26001754F4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		929B1B8C21498DFC000DB8F6 /* BookMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMovieViewController.swift; sourceTree = "<group>"; };
 		92F6E17A213DB32E005A8608 /* MovieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewController.swift; sourceTree = "<group>"; };
 		92F6E180213F1B18005A8608 /* TMDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBService.swift; sourceTree = "<group>"; };
 		92F6E18321418645005A8608 /* BriefMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefMovieTableViewCell.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		927CF824213BEB6A00598AB8 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				929B1B8B21498CFC000DB8F6 /* Book Movie */,
 				92827697214561F3001754F4 /* Movie Detail */,
 				927CF827213BF84300598AB8 /* Movie List */,
 			);
@@ -221,6 +224,14 @@
 				9282769F21481B26001754F4 /* Extensions.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		929B1B8B21498CFC000DB8F6 /* Book Movie */ = {
+			isa = PBXGroup;
+			children = (
+				929B1B8C21498DFC000DB8F6 /* BookMovieViewController.swift */,
+			);
+			path = "Book Movie";
 			sourceTree = "<group>";
 		};
 		92F6E17F213F1AC7005A8608 /* Service */ = {
@@ -450,6 +461,7 @@
 				9282769D2146E540001754F4 /* Spinner.swift in Sources */,
 				928276992145624A001754F4 /* MovieDetailTableViewController.swift in Sources */,
 				927CF82B213C1A8800598AB8 /* Movie.swift in Sources */,
+				929B1B8D21498DFC000DB8F6 /* BookMovieViewController.swift in Sources */,
 				92F6E18421418645005A8608 /* BriefMovieTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

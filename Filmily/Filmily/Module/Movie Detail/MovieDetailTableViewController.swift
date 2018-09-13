@@ -9,6 +9,10 @@
 import UIKit
 
 class MovieDetailTableViewController: UITableViewController {
+    
+    struct SegueIdentifier {
+        static let displayBookingWebsite = "DisplayBookMovie"
+    }
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -83,7 +87,7 @@ class MovieDetailTableViewController: UITableViewController {
     }
     
     @objc func displayBookingWebsite() {
-        
+        performSegue(withIdentifier: SegueIdentifier.displayBookingWebsite, sender: nil)
     }
     
     // MARK: - Display
@@ -149,15 +153,5 @@ class MovieDetailTableViewController: UITableViewController {
         
         return UITableViewAutomaticDimension
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
