@@ -15,7 +15,6 @@ class BookMovieViewController: UIViewController, WKNavigationDelegate, Alertable
     
     lazy private var progressView: UIProgressView = {
         let progressView = UIProgressView(progressViewStyle: .bar)
-        progressView.progress = 0.0
         progressView.isHidden = true
         
         return progressView
@@ -28,6 +27,7 @@ class BookMovieViewController: UIViewController, WKNavigationDelegate, Alertable
 
         webView = WKWebView()
         webView.navigationDelegate = self
+        webView.addObserver(self, forKeyPath: progressKey, options: .new, context: nil)
         view = webView
     }
     
@@ -35,7 +35,7 @@ class BookMovieViewController: UIViewController, WKNavigationDelegate, Alertable
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismissViewController))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(loadOfficialWebsite))
         
         loadOfficialWebsite()
     }
@@ -52,7 +52,7 @@ class BookMovieViewController: UIViewController, WKNavigationDelegate, Alertable
         let bounds = navigationController?.navigationBar.bounds
         progressView.frame = CGRect(x: 0.0, y: (bounds?.maxY)! - 2.0, width: (bounds?.width)!, height: 2.0)
     }
-    
+        
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -67,34 +67,30 @@ class BookMovieViewController: UIViewController, WKNavigationDelegate, Alertable
         dismiss(animated: true, completion: nil)
     }
     
-    func loadOfficialWebsite() {
+    @objc func loadOfficialWebsite() {
+        progressView.progress = 0.0
         let url = URL(string: "https://www.cathaycineplexes.com.sg")
         webView.load(URLRequest(url: url!))
-        webView.addObserver(self, forKeyPath: progressKey, options: .new, context: nil)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == progressKey {
             progressView.setProgress(Float(webView.estimatedProgress), animated: true)
-            progressView.isHidden = progressView.progress == 1.0
+            
+            if progressView.progress == 1.0 {
+                progressView.isHidden = true
+                progressView.progress = 0.0
+            } else {
+                progressView.isHidden = false
+            }
         } else {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
     }
     
     // MARK: - WKNavigationDelegate
-        
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        progressView.isHidden = true
-        progressView.progress = 0.0
-    }
-    
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        progressView.isHidden = true
-    }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        progressView.isHidden = true
         showAlert(title: "", message: error.localizedDescription)
     }
     
