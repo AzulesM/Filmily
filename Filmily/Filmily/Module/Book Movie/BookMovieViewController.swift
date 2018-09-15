@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class BookMovieViewController: UIViewController, WKNavigationDelegate {
+class BookMovieViewController: UIViewController, WKNavigationDelegate, Alertable {
 
     private var webView: WKWebView!
     
@@ -95,6 +95,7 @@ class BookMovieViewController: UIViewController, WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         progressView.isHidden = true
+        showAlert(title: "", message: error.localizedDescription)
     }
     
 }

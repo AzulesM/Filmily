@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieTableViewController: UITableViewController {
+class MovieTableViewController: UITableViewController, Alertable {
     
     struct SegueIdentifier {
         static let showMovieDetail = "ShowDetailSegue"
@@ -43,12 +43,14 @@ class MovieTableViewController: UITableViewController {
     }
     
     @objc func fetchLatestMovies() {
+        URLCache.shared.removeAllCachedResponses()
+        
         TMDBService.shared.discoverMovies(page: 1) { [weak self] (discoverResult, error) in
             Spinner.stop()
             self?.refreshControl?.endRefreshing()
 
             if let error = error {
-                print(error)
+                self?.showAlert(title: "", message: error.localizedDescription)
             } else {
                 self?.discoverResult = discoverResult
                 self?.insertMovies((discoverResult?.results)!, at: 0)
@@ -63,7 +65,7 @@ class MovieTableViewController: UITableViewController {
             self?.indicatorView.stopAnimating()
             
             if let error = error {
-                print(error)
+                self?.showAlert(title: "", message: error.localizedDescription)
             } else {
                 self?.discoverResult?.page = discoverResult?.page
                 self?.insertMovies((discoverResult?.results)!, at: (self?.movies.count)! - 1)

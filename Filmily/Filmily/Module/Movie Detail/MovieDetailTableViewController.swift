@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieDetailTableViewController: UITableViewController {
+class MovieDetailTableViewController: UITableViewController, Alertable {
     
     struct SegueIdentifier {
         static let displayBookingWebsite = "DisplayBookMovie"
@@ -77,7 +77,7 @@ class MovieDetailTableViewController: UITableViewController {
             Spinner.stop()
             
             if let error = error {
-                print(error)
+                self?.showAlert(title: "", message: error.localizedDescription)
             } else {
                 self?.movie?.genres = movie?.genres
                 self?.movie?.runtime = movie?.runtime
