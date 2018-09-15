@@ -34,46 +34,50 @@ class TMDBService {
     }
     
     private func discoverMovies(urlString: String, parameters: [String: Any], completion: @escaping DiscoverCompletion) {
-        Alamofire.request(urlString, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
-            if let error = response.error {
-                DispatchQueue.main.async {
-                    completion(nil, error)
-                }
-            } else if response.result.isSuccess {
-                do {
-                    let decoder = JSONDecoder()
-                    let discoverResult = try decoder.decode(DiscoverResult.self, from: response.data!)
-                    DispatchQueue.main.async {
-                        completion(discoverResult, nil)
+        Alamofire.request(urlString, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil)
+            .validate()
+            .responseJSON { response in
+                if response.result.isSuccess {
+                    do {
+                        let decoder = JSONDecoder()
+                        let discoverResult = try decoder.decode(DiscoverResult.self, from: response.data!)
+                        DispatchQueue.main.async {
+                            completion(discoverResult, nil)
+                        }
+                    } catch let error {
+                        DispatchQueue.main.async {
+                            completion(nil, error)
+                        }
                     }
-                } catch let error {
+                } else {
                     DispatchQueue.main.async {
-                        completion(nil, error)
+                        completion(nil, response.error)
                     }
                 }
-            }
         }
     }
     
     private func getMovieDetail(urlString: String, parameters: [String: Any], completion: @escaping GetMovieCompletion) {
-        Alamofire.request(urlString, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
-            if let error = response.error {
-                DispatchQueue.main.async {
-                    completion(nil, error)
-                }
-            } else if response.result.isSuccess {
-                do {
-                    let decoder = JSONDecoder()
-                    let getMovieResult = try decoder.decode(Movie.self, from: response.data!)
-                    DispatchQueue.main.async {
-                        completion(getMovieResult, nil)
+        Alamofire.request(urlString, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil)
+            .validate()
+            .responseJSON { response in
+                if response.result.isSuccess {
+                    do {
+                        let decoder = JSONDecoder()
+                        let getMovieResult = try decoder.decode(Movie.self, from: response.data!)
+                        DispatchQueue.main.async {
+                            completion(getMovieResult, nil)
+                        }
+                    } catch let error {
+                        DispatchQueue.main.async {
+                            completion(nil, error)
+                        }
                     }
-                } catch let error {
+                } else {
                     DispatchQueue.main.async {
-                        completion(nil, error)
+                        completion(nil, response.error)
                     }
                 }
-            }
         }
     }
 
