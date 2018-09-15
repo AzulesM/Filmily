@@ -21,6 +21,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <view key="tableFooterView" userInteractionEnabled="NO" contentMode="scaleToFill" id="IhZ-U7-t3r">
+                            <rect key="frame" x="0.0" y="270" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="rDJ-KH-7PJ">
+                                    <rect key="frame" x="177" y="12" width="20" height="20"/>
+                                </activityIndicatorView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="rDJ-KH-7PJ" firstAttribute="centerY" secondItem="IhZ-U7-t3r" secondAttribute="centerY" id="TsI-SH-vGo"/>
+                                <constraint firstItem="rDJ-KH-7PJ" firstAttribute="centerX" secondItem="IhZ-U7-t3r" secondAttribute="centerX" id="lUC-Jg-wc3"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BriefMovieTableViewCell" rowHeight="242" id="Zea-gt-Q34" customClass="BriefMovieTableViewCell" customModule="Filmily" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="242"/>
@@ -92,6 +106,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="VQK-cX-mWB"/>
                     <connections>
+                        <outlet property="indicatorView" destination="rDJ-KH-7PJ" id="x7c-7v-2bB"/>
                         <segue destination="LEA-cr-o0A" kind="show" identifier="ShowDetailSegue" id="osZ-iu-hg8"/>
                     </connections>
                 </tableViewController>

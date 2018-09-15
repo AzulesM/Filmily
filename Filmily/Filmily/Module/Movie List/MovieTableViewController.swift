@@ -22,6 +22,8 @@ class MovieTableViewController: UITableViewController {
     
     var movies: [Movie] = [Movie]()
     
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,8 +36,8 @@ class MovieTableViewController: UITableViewController {
     }
     
     func initView() {
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl?.addTarget(self, action: #selector(fetchLatestMovies), for: .valueChanged)
+        refreshControl = UIRefreshControl()
+        refreshControl!.addTarget(self, action: #selector(fetchLatestMovies), for: .valueChanged)
         
         tableView.estimatedRowHeight = 242.0
     }
@@ -49,19 +51,39 @@ class MovieTableViewController: UITableViewController {
                 print(error)
             } else {
                 self?.discoverResult = discoverResult
-                self?.insertLatestMovies((discoverResult?.results)!)
+                self?.insertMovies((discoverResult?.results)!, at: 0)
             }
         }
     }
     
-    func insertLatestMovies(_ movies: [Movie]) {
-        for movie in movies.reversed() where !self.movies.contains(movie) {
-            // display those movie info TMDB provided with title and at least poster or backdrop
-            if movie.isInfoEnough() {
-                self.movies.insert(movie, at: 0)
+    func fetchMoreMovies() {
+        indicatorView.startAnimating()
+        
+        TMDBService.shared.discoverMovies(page: (discoverResult?.page)! + 1) { [weak self] (discoverResult, error) in
+            self?.indicatorView.stopAnimating()
+            
+            if let error = error {
+                print(error)
+            } else {
+                self?.discoverResult?.page = discoverResult?.page
+                self?.insertMovies((discoverResult?.results)!, at: (self?.movies.count)! - 1)
+            }
+        }
+    }
+    
+    func insertMovies(_ movies: [Movie], at index: Int) {
+        var newMovies = [Movie]()
+        
+        // Display those movie info TMDB provided with title and at least poster or backdrop
+        for movie in movies where movie.isInfoEnough() {
+            if index != 0 {
+                newMovies.append(movie)
+            } else if !self.movies.contains(movie) {
+                newMovies.append(movie)
             }
         }
         
+        self.movies.insert(contentsOf: newMovies, at: index)
         tableView.reloadData()
     }
     
@@ -78,11 +100,24 @@ class MovieTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.movies.count
+        return movies.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 242.0
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // The max input parameter of page for discover TMDB movies is 1000
+        let maxPage = 1000
+        let page = discoverResult?.page ?? 0
+        let isMoreMoviesExisted = page < (discoverResult?.total_results)! && page < maxPage
+        
+        if indexPath.row == movies.count - 1 && isMoreMoviesExisted {
+            fetchMoreMovies()
+        } else if !isMoreMoviesExisted {
+            tableView.tableFooterView?.isHidden = true
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
