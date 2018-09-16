@@ -29,11 +29,15 @@ class BriefMovieTableViewCell: UITableViewCell {
         let url = URL(string: baseURL + urlString!)
         
         movieImageView.sd_setImage(with: url, placeholderImage: nil, options: .retryFailed) { [weak self] (image, error, cacheType, imageURL) in
-            if error == nil && urlString == movie.poster_path {
+            if error != nil {
+                self?.movieImageView.image = UIImage(named: "Oops")
+            }
+            
+//            if error == nil && urlString == movie.poster_path {
 //                let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
 //                visualEffectView.frame = (self?.movieImageView.bounds)!
 //                self?.movieImageView.addSubview(visualEffectView)
-            }
+//            }
         }
     }
     

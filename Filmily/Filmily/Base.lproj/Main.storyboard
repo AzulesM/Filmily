@@ -26,13 +26,14 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="rDJ-KH-7PJ">
-                                    <rect key="frame" x="177" y="12" width="20" height="20"/>
+                                    <rect key="frame" x="177" y="0.0" width="20" height="44"/>
                                 </activityIndicatorView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="rDJ-KH-7PJ" firstAttribute="centerY" secondItem="IhZ-U7-t3r" secondAttribute="centerY" id="TsI-SH-vGo"/>
                                 <constraint firstItem="rDJ-KH-7PJ" firstAttribute="centerX" secondItem="IhZ-U7-t3r" secondAttribute="centerX" id="lUC-Jg-wc3"/>
+                                <constraint firstItem="rDJ-KH-7PJ" firstAttribute="height" secondItem="IhZ-U7-t3r" secondAttribute="height" id="x31-GD-df7"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -48,7 +49,7 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7lJ-5e-5CI">
                                                     <rect key="frame" x="0.0" y="0.0" width="343" height="192"/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="7lJ-5e-5CI" secondAttribute="height" multiplier="1:0.56" id="IWx-1C-O4R"/>
                                                     </constraints>
@@ -118,10 +119,30 @@
         <scene sceneID="iag-rV-Cux">
             <objects>
                 <tableViewController id="LEA-cr-o0A" customClass="MovieDetailTableViewController" customModule="Filmily" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="btB-iP-AyY">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="btB-iP-AyY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="FPf-Mv-v7r">
+                            <rect key="frame" x="0.0" y="456" width="375" height="70"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofd-3p-Iah">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="70" id="D4O-ye-s3D"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="ofd-3p-Iah" firstAttribute="top" secondItem="FPf-Mv-v7r" secondAttribute="top" id="OUV-Tc-ESe"/>
+                                <constraint firstItem="ofd-3p-Iah" firstAttribute="leading" secondItem="FPf-Mv-v7r" secondAttribute="leading" id="R1Z-r4-xd6"/>
+                                <constraint firstAttribute="trailing" secondItem="ofd-3p-Iah" secondAttribute="trailing" id="ThE-HH-enG"/>
+                                <constraint firstAttribute="bottom" secondItem="ofd-3p-Iah" secondAttribute="bottom" id="bD7-mf-che"/>
+                            </constraints>
+                        </view>
                         <sections>
                             <tableViewSection id="svB-eY-KnA">
                                 <cells>
@@ -237,7 +258,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F74-se-RZH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2247" y="-323"/>
+            <point key="canvasLocation" x="2245.5999999999999" y="-323.38830584707648"/>
         </scene>
         <!--Book Movie View Controller-->
         <scene sceneID="YPC-y8-9j4">

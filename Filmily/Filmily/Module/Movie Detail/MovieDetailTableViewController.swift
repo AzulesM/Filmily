@@ -108,7 +108,10 @@ class MovieDetailTableViewController: UITableViewController, Alertable {
         let urlString = self.movie!.backdrop_path ?? self.movie!.poster_path
         let url = URL(string: "https://image.tmdb.org/t/p/w500" + urlString!)
         
-        self.imageView.sd_setImage(with: url, placeholderImage: nil, options: .retryFailed) { (image, error, cacheType, imageURL) in
+        self.imageView.sd_setImage(with: url, placeholderImage: nil, options: .retryFailed) { [weak self] (image, error, cacheType, imageURL) in
+            if error != nil {
+                self?.imageView.image = UIImage(named: "Oops")
+            }
         }
     }
     
