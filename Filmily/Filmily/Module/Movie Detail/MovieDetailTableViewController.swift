@@ -13,9 +13,9 @@ class MovieDetailTableViewController: UITableViewController, Alertable {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
-    @IBOutlet weak var genresLabel: UILabel!
     @IBOutlet weak var runtimeLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var genredStactView: UIStackView!
     
     var bookingButton: UIButton!
     var originalButtonPoint: CGPoint = CGPoint.zero
@@ -96,10 +96,10 @@ class MovieDetailTableViewController: UITableViewController, Alertable {
         
         titleLabel.text = movie?.title
         languageLabel.text = languageString()
-        genresLabel.text = genresString()
         runtimeLabel.text = runtimeString()
         overviewLabel.text = movie?.overview
         
+        updateGenres()
         tableView.reloadData()
     }
     
@@ -122,18 +122,13 @@ class MovieDetailTableViewController: UITableViewController, Alertable {
         return ""
     }
     
-    func genresString() -> String {
+    func updateGenres() {
         if let genres = self.movie?.genres {
-            var genresString = ""
-            
             for genre in genres {
-                genresString += genre.name!
+                let genreLabel = createGenreLabel(for: genre.name!)
+                genredStactView.addArrangedSubview(genreLabel)
             }
-            
-            return genresString
         }
-        
-        return ""
     }
     
     func runtimeString() -> String {
@@ -146,6 +141,20 @@ class MovieDetailTableViewController: UITableViewController, Alertable {
         } else {
             return ""
         }
+    }
+    
+    func createGenreLabel(for genre: String) -> UILabel {
+        let label = UILabel()
+        label.text = genre
+        label.textColor = .white
+        label.backgroundColor = .blue
+        label.alpha = 0.8
+        label.numberOfLines = 1
+        label.minimumScaleFactor = 0.5
+        label.font = UIFont(name: "Verdana", size: 15.0)
+        label.sizeToFit()
+        
+        return label
     }
 
     // MARK: - Table view delegate
