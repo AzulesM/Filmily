@@ -9,15 +9,7 @@
 import UIKit
 
 class MovieTableViewController: UITableViewController, Alertable {
-    
-    struct SegueIdentifier {
-        static let showMovieDetail = "ShowDetailSegue"
-    }
-    
-    struct BundleKey {
-        static let displayName = "CFBundleDisplayName"
-    }
-    
+        
     var discoverResult: DiscoverResult?
     
     var movies: [Movie] = [Movie]()

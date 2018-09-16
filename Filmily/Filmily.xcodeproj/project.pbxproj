@@ -19,6 +19,7 @@
 		928276A021481B26001754F4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282769F21481B26001754F4 /* Extensions.swift */; };
 		929B1B8D21498DFC000DB8F6 /* BookMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B1B8C21498DFC000DB8F6 /* BookMovieViewController.swift */; };
 		929B1B8F214CF823000DB8F6 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B1B8E214CF823000DB8F6 /* Alertable.swift */; };
+		929B1B93214E92CE000DB8F6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B1B92214E92CE000DB8F6 /* Constants.swift */; };
 		92F6E17B213DB32E005A8608 /* MovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F6E17A213DB32E005A8608 /* MovieTableViewController.swift */; };
 		92F6E181213F1B18005A8608 /* TMDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F6E180213F1B18005A8608 /* TMDBService.swift */; };
 		92F6E18421418645005A8608 /* BriefMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F6E18321418645005A8608 /* BriefMovieTableViewCell.swift */; };
@@ -70,6 +71,7 @@
 		9282769F21481B26001754F4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		929B1B8C21498DFC000DB8F6 /* BookMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMovieViewController.swift; sourceTree = "<group>"; };
 		929B1B8E214CF823000DB8F6 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		929B1B92214E92CE000DB8F6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		92F6E17A213DB32E005A8608 /* MovieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewController.swift; sourceTree = "<group>"; };
 		92F6E180213F1B18005A8608 /* TMDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBService.swift; sourceTree = "<group>"; };
 		92F6E18321418645005A8608 /* BriefMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefMovieTableViewCell.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			children = (
 				9282769C2146E540001754F4 /* Spinner.swift */,
 				929B1B8E214CF823000DB8F6 /* Alertable.swift */,
+				929B1B92214E92CE000DB8F6 /* Constants.swift */,
 				9282769F21481B26001754F4 /* Extensions.swift */,
 			);
 			path = Helper;
@@ -458,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92F6E181213F1B18005A8608 /* TMDBService.swift in Sources */,
+				929B1B93214E92CE000DB8F6 /* Constants.swift in Sources */,
 				92F6E17B213DB32E005A8608 /* MovieTableViewController.swift in Sources */,
 				927CF7F0213A8CBA00598AB8 /* AppDelegate.swift in Sources */,
 				928276A021481B26001754F4 /* Extensions.swift in Sources */,

@@ -9,10 +9,6 @@
 import UIKit
 
 class MovieDetailTableViewController: UITableViewController, Alertable {
-    
-    struct SegueIdentifier {
-        static let displayBookingWebsite = "DisplayBookMovie"
-    }
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -28,6 +24,8 @@ class MovieDetailTableViewController: UITableViewController, Alertable {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = Bundle.main.object(forInfoDictionaryKey: BundleKey.displayName) as? String
         
         updateUI()
         addBookingButton()
