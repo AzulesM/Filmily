@@ -37,6 +37,7 @@ class BookMovieViewController: UIViewController, WKNavigationDelegate, Alertable
         navigationItem.title = Bundle.main.object(forInfoDictionaryKey: BundleKey.displayName) as? String
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismissViewController))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(loadOfficialWebsite))
+        navigationController?.navigationBar.isTranslucent = false
         
         loadOfficialWebsite()
     }
