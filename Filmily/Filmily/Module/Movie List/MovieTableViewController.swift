@@ -9,18 +9,12 @@
 import UIKit
 
 class MovieTableViewController: UITableViewController, Alertable {
-    
-    struct SegueIdentifier {
-        static let showMovieDetail = "ShowDetailSegue"
-    }
-    
-    struct BundleKey {
-        static let displayName = "CFBundleDisplayName"
-    }
-    
+        
     var discoverResult: DiscoverResult?
     
     var movies: [Movie] = [Movie]()
+    
+    var cellHeight: CGFloat!
     
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
@@ -35,11 +29,25 @@ class MovieTableViewController: UITableViewController, Alertable {
         fetchLatestMovies()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        calculateCellHeight()
+    }
+    
     func initView() {
         refreshControl = UIRefreshControl()
         refreshControl!.addTarget(self, action: #selector(fetchLatestMovies), for: .valueChanged)
+    }
+    
+    fileprivate func calculateCellHeight() {
+        let widthMargins = view.layoutMargins.left + view.layoutMargins.right
+        let heightMargins: CGFloat = 22.0
         
-        tableView.estimatedRowHeight = 242.0
+        // 0.56 is the backdrop image from TMDb height/width ratio
+        let backdropImageRatio: CGFloat = 0.56
+        let titleHeight: CGFloat = 28.0
+        cellHeight = ((tableView.bounds.width - widthMargins) * backdropImageRatio) + titleHeight + heightMargins
     }
     
     @objc func fetchLatestMovies() {
@@ -106,7 +114,7 @@ class MovieTableViewController: UITableViewController, Alertable {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 242.0
+        return cellHeight
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

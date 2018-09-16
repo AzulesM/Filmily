@@ -9,17 +9,13 @@
 import UIKit
 
 class MovieDetailTableViewController: UITableViewController, Alertable {
-    
-    struct SegueIdentifier {
-        static let displayBookingWebsite = "DisplayBookMovie"
-    }
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
-    @IBOutlet weak var genresLabel: UILabel!
     @IBOutlet weak var runtimeLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var genredStactView: UIStackView!
     
     var bookingButton: UIButton!
     var originalButtonPoint: CGPoint = CGPoint.zero
@@ -28,6 +24,8 @@ class MovieDetailTableViewController: UITableViewController, Alertable {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = Bundle.main.object(forInfoDictionaryKey: BundleKey.displayName) as? String
         
         updateUI()
         addBookingButton()
@@ -49,7 +47,8 @@ class MovieDetailTableViewController: UITableViewController, Alertable {
     
     func addBookingButton() {
         bookingButton = UIButton(type: .custom)
-        bookingButton.backgroundColor = .red
+        bookingButton.backgroundColor = UIColor.buttonRed()
+        bookingButton.setImage(UIImage(named: "Ticket"), for: .normal)
         bookingButton.addTarget(self, action: #selector(displayBookingWebsite), for: .touchUpInside)
         tableView.addSubview(bookingButton)
     }
@@ -97,10 +96,10 @@ class MovieDetailTableViewController: UITableViewController, Alertable {
         
         titleLabel.text = movie?.title
         languageLabel.text = languageString()
-        genresLabel.text = genresString()
         runtimeLabel.text = runtimeString()
         overviewLabel.text = movie?.overview
         
+        updateGenres()
         tableView.reloadData()
     }
     
@@ -108,7 +107,10 @@ class MovieDetailTableViewController: UITableViewController, Alertable {
         let urlString = self.movie!.backdrop_path ?? self.movie!.poster_path
         let url = URL(string: "https://image.tmdb.org/t/p/w500" + urlString!)
         
-        self.imageView.sd_setImage(with: url, placeholderImage: nil, options: .retryFailed) { (image, error, cacheType, imageURL) in
+        self.imageView.sd_setImage(with: url, placeholderImage: nil, options: .retryFailed) { [weak self] (image, error, cacheType, imageURL) in
+            if error != nil {
+                self?.imageView.image = UIImage(named: "Oops")
+            }
         }
     }
     
@@ -120,26 +122,39 @@ class MovieDetailTableViewController: UITableViewController, Alertable {
         return ""
     }
     
-    func genresString() -> String {
+    func updateGenres() {
         if let genres = self.movie?.genres {
-            var genresString = ""
-            
             for genre in genres {
-                genresString += genre.name!
+                let genreLabel = createGenreLabel(for: genre.name!)
+                genredStactView.addArrangedSubview(genreLabel)
             }
-            
-            return genresString
         }
-        
-        return ""
     }
     
     func runtimeString() -> String {
         if let runtime = movie?.runtime {
-            return String(format: "🕒 %02d : %02d", runtime / 60, runtime % 60)
+            var components = DateComponents()
+            components.hour = runtime / 60
+            components.minute = runtime % 60
+            
+            return DateComponentsFormatter.localizedString(from: components, unitsStyle: .abbreviated)!
         } else {
             return ""
         }
+    }
+    
+    func createGenreLabel(for genre: String) -> UILabel {
+        let label = UILabel()
+        label.text = genre
+        label.textColor = .white
+        label.backgroundColor = .blue
+        label.alpha = 0.8
+        label.numberOfLines = 1
+        label.minimumScaleFactor = 0.5
+        label.font = UIFont(name: "Verdana", size: 15.0)
+        label.sizeToFit()
+        
+        return label
     }
 
     // MARK: - Table view delegate
