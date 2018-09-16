@@ -13,15 +13,31 @@ class TMDBService {
     
     static let shared = TMDBService()
     
-    let key: String = "d184b88235b14fcef7ea6e76fd52cd3e"
-    let baseURL: String = "https://api.themoviedb.org/3/"
+    private let key: String = {
+        if let keyInfo = Bundle.main.infoDictionary!["TMDB"] as? [String: Any],
+            let key = keyInfo["APIKey"] as? String {
+            return key
+        }
+        
+        assertionFailure("APIKey Not Found")
+        return ""
+    }()
+    
+    private let baseURL: String = "https://api.themoviedb.org/3/"
+    
+    lazy var dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        return dateFormatter
+    }()
     
     public typealias DiscoverCompletion = (_ discoverResult: DiscoverResult?, _ error: Error?) -> Void
     public typealias GetMovieCompletion = (_ getMovieResult: Movie?, _ error: Error?) -> Void
     
-    open func discoverMovies(page: Int, completion: @escaping DiscoverCompletion) {
+    open func discoverMovies(page: Int, completion: @escaping DiscoverCompletion) {        
         let url = baseURL + "discover/movie"
-        let parameters = ["api_key": key, "sort_by": "release_date.desc", "page": String(page), "primary_release_date.lte": "2016-12-31"]
+        let parameters = ["api_key": key, "sort_by": "release_date.desc", "page": String(page), "primary_release_date.lte": dateFormatter.string(from: Date())]
         
         discoverMovies(urlString: url, parameters: parameters, completion: completion)
     }
