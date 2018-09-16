@@ -36,6 +36,11 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>TMDB</key>
+	<dict>
+		<key>APIKey</key>
+		<string>d184b88235b14fcef7ea6e76fd52cd3e</string>
+	</dict>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

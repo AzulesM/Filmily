@@ -13,8 +13,17 @@ class TMDBService {
     
     static let shared = TMDBService()
     
-    let key: String = "d184b88235b14fcef7ea6e76fd52cd3e"
-    let baseURL: String = "https://api.themoviedb.org/3/"
+    private let key: String = {
+        if let keyInfo = Bundle.main.infoDictionary!["TMDB"] as? [String: Any],
+            let key = keyInfo["APIKey"] as? String {
+            return key
+        }
+        
+        assertionFailure("APIKey Not Found")
+        return ""
+    }()
+    
+    private let baseURL: String = "https://api.themoviedb.org/3/"
     
     public typealias DiscoverCompletion = (_ discoverResult: DiscoverResult?, _ error: Error?) -> Void
     public typealias GetMovieCompletion = (_ getMovieResult: Movie?, _ error: Error?) -> Void
