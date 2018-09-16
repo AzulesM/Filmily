@@ -49,7 +49,8 @@ class MovieDetailTableViewController: UITableViewController, Alertable {
     
     func addBookingButton() {
         bookingButton = UIButton(type: .custom)
-        bookingButton.backgroundColor = .red
+        bookingButton.backgroundColor = UIColor.buttonRed()
+        bookingButton.setImage(UIImage(named: "Ticket"), for: .normal)
         bookingButton.addTarget(self, action: #selector(displayBookingWebsite), for: .touchUpInside)
         tableView.addSubview(bookingButton)
     }
