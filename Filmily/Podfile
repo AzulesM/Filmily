@@ -8,6 +8,7 @@ target 'Filmily' do
   # Pods for Filmily
   pod 'Alamofire'
   pod 'SDWebImage'
+  pod 'AlamofireNetworkActivityIndicator'
 
   target 'FilmilyTests' do
     inherit! :search_paths
