@@ -28,7 +28,7 @@ class BriefMovieTableViewCell: UITableViewCell {
         let urlString = movie.backdrop_path ?? movie.poster_path
         let url = URL(string: baseURL + urlString!)
         
-        movieImageView.sd_setImage(with: url, placeholderImage: nil, options: .retryFailed) { [weak self] (image, error, cacheType, imageURL) in
+        movieImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "Loading"), options: .retryFailed) { [weak self] (image, error, cacheType, imageURL) in
             if error != nil {
                 self?.movieImageView.image = UIImage(named: "Oops")
             }
