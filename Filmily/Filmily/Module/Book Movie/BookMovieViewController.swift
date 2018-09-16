@@ -82,8 +82,10 @@ class BookMovieViewController: UIViewController, WKNavigationDelegate, Alertable
             if progressView.progress == 1.0 {
                 progressView.isHidden = true
                 progressView.progress = 0.0
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             } else {
                 progressView.isHidden = false
+                UIApplication.shared.isNetworkActivityIndicatorVisible = true
             }
         } else {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
