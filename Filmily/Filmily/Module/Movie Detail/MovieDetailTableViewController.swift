@@ -140,7 +140,11 @@ class MovieDetailTableViewController: UITableViewController, Alertable {
     
     func runtimeString() -> String {
         if let runtime = movie?.runtime {
-            return String(format: "🕒 %02d : %02d", runtime / 60, runtime % 60)
+            var components = DateComponents()
+            components.hour = runtime / 60
+            components.minute = runtime % 60
+            
+            return DateComponentsFormatter.localizedString(from: components, unitsStyle: .abbreviated)!
         } else {
             return ""
         }
